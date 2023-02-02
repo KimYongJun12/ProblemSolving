@@ -25,7 +25,7 @@ public class BOJ_2437 {
             if (sum + 1 < num[i]) break;
             sum += num[i];
         }
-
+        
         System.out.println(sum + 1);
     }
 
