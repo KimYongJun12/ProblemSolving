@@ -12,7 +12,7 @@ public class BOJ_6087 {
     static int[] dx = {-1, 0, 1, 0};
     static int[] dy = {0, -1, 0, 1};
 
-    static class Node {
+    static class Node implements Comparable<Node> {
         int x, y, dir, mirrors;
 
         public Node(int x, int y, int dir, int mirrors) {
@@ -20,6 +20,11 @@ public class BOJ_6087 {
             this.y = y;
             this.dir = dir;
             this.mirrors = mirrors;
+        }
+
+        @Override
+        public int compareTo(Node o) {
+            return this.mirrors - o.mirrors;
         }
     }
 
@@ -48,7 +53,7 @@ public class BOJ_6087 {
     private static int bfs(Node start) {
         int min = Integer.MAX_VALUE;
         Node goal = target[1];
-        Queue<Node> q = new LinkedList<>();
+        PriorityQueue<Node> q = new PriorityQueue<>();
         int[][][] visited = new int[4][h][w];
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < h; j++) {
