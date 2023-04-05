@@ -34,6 +34,7 @@ public class BOJ_17398 {
         groupSize = new long[N + 1];
         Arrays.fill(groupSize, 1);
         connects = new Connection[M + 1];
+
         for (int i = 1; i <= M; i++) {
             st = new StringTokenizer(br.readLine());
             int a = Integer.parseInt(st.nextToken());
@@ -42,7 +43,13 @@ public class BOJ_17398 {
             connects[i] = new Connection(a, b);
         }
 
-        boolean[] cutLine = new boolean[M + 1];
+        /**
+         * 제거 예정인 간선을 저장해 두고 나머지 간선을 모두 연결한 상태로
+         * 제거 역순으로 그래프를 Union 작업하여 문제를 해결한다.
+         * Union-Find 기법은 그래프를 분리하는 상황에서 쓰지 못하기 때문에
+         * 문제를 거꾸로 생각해 해결한다.
+         */
+        boolean[] cutLine = new boolean[M + 1]; // 제거 예정 간선 정보 저장
         Stack<Integer> stack = new Stack<>();
         while (Q-- > 0) {
             int idx = Integer.parseInt(br.readLine());
@@ -64,6 +71,8 @@ public class BOJ_17398 {
             Connection now = connects[stack.pop()];
             int a = find(now.a);
             int b = find(now.b);
+
+            // 서로 다른 그룹이라면 제거 비용을 구하여 합함.
             if (a != b) ans += groupSize[a] * groupSize[b];
 
             union(a, b);
