@@ -79,7 +79,7 @@ public class BOJ_16197 {
                     coin[j].y = nextY;
                 }
             }
-
+            
             if (isFall[0] ^ isFall[1]) return i + 1;
             if (isFall[0] & isFall[1]) return 11;
         }
