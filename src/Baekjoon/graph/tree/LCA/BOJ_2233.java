@@ -1,4 +1,4 @@
-package Baekjoon.graph.tree;
+package Baekjoon.graph.tree.LCA;
 
 import java.io.BufferedReader;
 import java.io.IOException;
