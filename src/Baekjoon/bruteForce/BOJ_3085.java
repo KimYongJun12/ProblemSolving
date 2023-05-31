@@ -7,7 +7,6 @@ import java.io.InputStreamReader;
 public class BOJ_3085 {
     static int N;
     static char[][] board;
-
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         N = Integer.parseInt(br.readLine());
