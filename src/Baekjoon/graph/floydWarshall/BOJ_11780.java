@@ -1,4 +1,4 @@
-package Baekjoon;
+package Baekjoon.graph.floydWarshall;
 
 import java.io.BufferedReader;
 import java.io.IOException;
